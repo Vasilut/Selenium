@@ -1,11 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SeleniumProj
 {
@@ -22,7 +17,7 @@ namespace SeleniumProj
         }
 
         [TestMethod]
-        [ExpectedException(typeof(System.EntryPointNotFoundException))]
+        [ExpectedException(typeof(OpenQA.Selenium.NoSuchElementException))]
         public void Login()
         {
 
@@ -46,11 +41,13 @@ namespace SeleniumProj
             _driver.Navigate().GoToUrl("http://192.168.111.196/prophet/admin/saas/logout.aspx");
 
             IWebElement userLoggedInAfterLogout = _driver.FindElement(By.Id("Top1_lblFirstNM"));
+            CleanUp();
         }
 
         [TestCleanup]
         public void CleanUp()
         {
+            _driver.Close();
             _driver.Quit();
         }
     }

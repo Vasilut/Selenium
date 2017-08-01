@@ -37,7 +37,8 @@ namespace SeleniumProj
             IWebElement userLoggedIn = driver.FindElement(By.Id("Top1_lblFirstNM"));
             var userName = userLoggedIn.Text;
 
-            //driver.Quit();
+            driver.Close();
+            driver.Quit();
         }
 
         [SetUp]
