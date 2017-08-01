@@ -1,6 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System;
+using System.IO;
 
 namespace SeleniumProj
 {
@@ -12,6 +14,7 @@ namespace SeleniumProj
         [TestInitialize]
         public void InitClient()
         {
+            //string path = Path.Combine(Environment.CurrentDirectory, "chromedriver.exe");
             _driver = new ChromeDriver();
             _driver.Navigate().GoToUrl("http://192.168.111.196/prophet/admin/saas/main.aspx");
         }
@@ -38,7 +41,9 @@ namespace SeleniumProj
             Assert.IsTrue(userName == "Lucian");
 
             //Make logout
-            _driver.Navigate().GoToUrl("http://192.168.111.196/prophet/admin/saas/logout.aspx");
+            IWebElement logOutButton = _driver.FindElement(By.LinkText("Logout"));
+            logOutButton.Click();
+            //_driver.Navigate().GoToUrl("http://192.168.111.196/prophet/admin/saas/logout.aspx");
 
             IWebElement userLoggedInAfterLogout = _driver.FindElement(By.Id("Top1_lblFirstNM"));
             CleanUp();
