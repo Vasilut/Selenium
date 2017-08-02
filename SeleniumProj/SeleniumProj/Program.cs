@@ -37,8 +37,11 @@ namespace SeleniumProj
             IWebElement userLoggedIn = driver.FindElement(By.Id("Top1_lblFirstNM"));
             var userName = userLoggedIn.Text;
 
-            var x = 2;
             IWebElement logOutButton = driver.FindElement(By.LinkText("Logout"));
+            logOutButton.Click();
+            //_driver.Navigate().GoToUrl("http://192.168.111.196/prophet/admin/saas/logout.aspx");
+
+            IWebElement userLoggedInAfterLogout = driver.FindElement(By.Id("Top1_lblFirstNM"));
 
             driver.Close();
             driver.Quit();
