@@ -19,7 +19,7 @@ namespace SeleniumProj
             ////create the reference for our browser
             IWebDriver driver = new ChromeDriver();
 
-            //navigate to a page
+            //navigate to a page go
             driver.Navigate().GoToUrl("http://192.168.111.196/prophet/admin/saas/main.aspx");
 
             //Find the element
