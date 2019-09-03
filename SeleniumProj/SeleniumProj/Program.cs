@@ -22,7 +22,7 @@ namespace SeleniumProj
             //navigate to a page
             driver.Navigate().GoToUrl("http://192.168.111.196/prophet/admin/saas/main.aspx");
 
-            //Find the element
+            //Find the element that is correct
             IWebElement name = driver.FindElement(By.Name("_ctl0:ContentPlaceHolder1:tb_Email"));
             IWebElement password = driver.FindElement(By.Name("_ctl0:ContentPlaceHolder1:tb_Password"));
             IWebElement loginButton = driver.FindElement(By.Name("_ctl0:ContentPlaceHolder1:btn_signin"));
